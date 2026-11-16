@@ -1,0 +1,11 @@
+# 로봇에서 `ros2 topic list`로 실제 토픽 이름을 확인하고 맞추세요.
+marker_mapper:
+  ros__parameters:
+    image_topic: /oakd/rgb/preview/image_raw
+    camera_info_topic: /oakd/rgb/preview/camera_info
+    scan_topic: /scan
+    map_frame: map
+    output_dir: ~/osp_result
+    min_detections: 3
+    max_range: 4.0
+    process_period: 0.2
