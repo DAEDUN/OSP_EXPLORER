@@ -88,7 +88,7 @@ python3 -c "import cv2; print(cv2.aruco)"
 
 ## 🚀 실행
 
-로봇 연결 후, 터미널 3개 (각각 `source ~/osp_ws/install/setup.bash`)
+로봇 연결 후, 터미널 4개 (각각 `source ~/osp_ws/install/setup.bash`)
 
 ```bash
 # 1️⃣ SLAM
@@ -101,9 +101,25 @@ ros2 launch turtlebot4_viz view_navigation.launch.py
 ros2 run osp_explorer marker_mapper
 #   또는 params.yaml 적용해서
 ros2 launch osp_explorer marker.launch.py
+
+# 4️⃣ 키보드로 로봇 움직이기 (teleop)
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=true
 ```
 
-로봇을 teleop으로 움직이면서 마커가 카메라에 보이게 하면, 터미널에 `*** FOUND marker ID n` 이 뜨고 RViz 지도 위에 표시됩니다.
+teleop 키 (teleop 터미널을 클릭해 둔 상태에서 입력):
+
+| 키 | 동작 |
+|:-:|---|
+| `i` | 앞으로 |
+| `,` | 뒤로 |
+| `j` / `l` | 제자리 왼쪽 / 오른쪽 회전 |
+| `u` / `o` | 앞으로 가면서 왼쪽 / 오른쪽 |
+| `k` | 정지 |
+| `q` / `z` | 속도 올리기 / 내리기 |
+
+> 💡 마커 인식은 천천히 움직일 때 잘 됩니다. 처음에 `z`를 몇 번 눌러 속도를 낮추세요.
+
+로봇을 움직이면서 마커가 카메라에 보이게 하면, 3번 터미널에 `*** FOUND marker ID n` 이 뜨고 RViz 지도 위에 표시됩니다.
 
 ---
 
